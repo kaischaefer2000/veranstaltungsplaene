@@ -12704,7 +12704,8 @@
 
     <!-- Logic -->
     <script>
-      let disabledIds = [];
+      const cookies = document.cookie;
+      let disabledIds = cookies ? JSON.parse(cookies) : [];
       const idValueMap = {
         offSec: "Offensive Security",
         webCon: "Web-Controlling",
@@ -12723,7 +12724,6 @@
         // all the ui blocks of the lectures
         const test = getElementsByXPath(value);
         // if checkbox is now checked, set the opacity to 100
-        console.log("test" + test)
         if (checkBox.checked == true && test.length > 0) {
           // store as cookie that user visits this lecture
           const ids = disabledIds.filter((e) => e !== id);
@@ -12742,7 +12742,6 @@
           });
         } else {
         }
-        console.log(disabledIds);
       }
 
       function checkForCookies() {

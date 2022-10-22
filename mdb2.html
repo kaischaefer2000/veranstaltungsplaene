@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>Veranstaltungsplan MDB WS22</title>
+    <style type="text/css">
+      .w1,
+      .w2,
+      .anm,
+      .zurueck,
+      .fz,
+      .fzl {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        white-space: nowrap;
+      }
+      .w1,
+      .w2 {
+        text-align: center;
+      }
+      .w1 {
+        font-size: 11pt;
+        font-weight: bold;
+      }
+      .w2,
+      .anm {
+        font-size: 9pt;
+        font-weight: normal;
+      }
+      .fz,
+      .fzl {
+        margin-top: 10px;
+      }
+      .fz,
+      .fzl {
+        font-size: 8pt;
+        text-align: right;
+      }
+      .rz1,
+      .rz2,
+      .v,
+      .ft,
+      .v1,
+      .v2,
+      .fn,
+      .fnft {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        font-weight: normal;
+      }
+      .rz1,
+      .rz2 {
+        white-space: nowrap;
+      }
+      .v,
+      .ft,
+      .v1,
+      .v2 {
+        text-align: center;
+      }
+      .rz1,
+      .rz2 {
+        font-size: 9pt;
+      }
+      .v,
+      .ft,
+      .v1,
+      .v2 {
+        font-size: 8pt;
+        vertical-align: middle;
+      }
+      .fn,
+      .fnft {
+        font-size: 9pt;
+      }
+      .tfl {
+        background-color: white;
+        color: white;
+      }
+      .v {
+        background-color: white;
+      }
+      .rz1,
+      .r1 {
+        background-color: #c4c4d4;
+        color: #000000;
+      }
+      .rz2,
+      .r2 {
+        background-color: #d4d4c4;
+        color: #000000;
+      }
+      .rd1,
+      .rdm1,
+      .v1 {
+        background-color: #dadae2;
+      }
+      .rd2,
+      .rdm2,
+      .v2 {
+        background-color: #e2e2da;
+      }
+      .fnft {
+        color: #e00000;
+      }
+      @media screen {
+        .v,
+        .ft,
+        .v1,
+        .v2 {
+          padding: 2px;
+        }
+        .v {
+          border: 1px solid black;
+        }
+        .tfl {
+          font-size: 6px;
+          height: 6px;
+        }
+        .rd1,
+        .rd2 {
+          border-left: 1px solid silver;
+        }
+        .rd1,
+        .rd2 {
+          border-right: 1px solid silver;
+        }
+        .r1,
+        .r2,
+        .rd1,
+        .rdm1,
+        .rd2,
+        .rdm2 {
+          font-size: 3px;
+          height: 3px;
+        }
+      }
+      @media print {
+        .v,
+        .ft,
+        .v1,
+        .v2 {
+          padding: 2pt;
+        }
+        .v {
+          border: 1pt solid black;
+        }
+        .tfl {
+          font-size: 6pt;
+          height: 6pt;
+        }
+        .rd1,
+        .rd2 {
+          border-left: 1pt solid silver;
+        }
+        .rd1,
+        .rd2 {
+          border-right: 1pt solid silver;
+        }
+        .r1,
+        .r2,
+        .rd1,
+        .rdm1,
+        .rd2,
+        .rdm2 {
+          font-size: 3pt;
+          height: 3pt;
+        }
+      }
+      .t {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f0f0f0;
+        color: #000000;
+      }
+      .t {
+        font-size: 9pt;
+        font-weight: bold;
+      }
+      .t {
+        text-align: center;
+        vertical-align: top;
+      }
+      .tf {
+        background-color: #f0f0f0;
+        color: #000000;
+      }
+      .rz1,
+      .rz2 {
+        text-align: right;
+        vertical-align: top;
+      }
+      .rdl1,
+      .rdr1 {
+        background-color: #dadae2;
+        color: #000000;
+      }
+      .rdl2,
+      .rdr2 {
+        background-color: #e2e2da;
+        color: #000000;
+      }
+      @media screen {
+        .t {
+          border-top: 1px solid silver;
+          border-left: 1px solid silver;
+          border-right: 1px solid silver;
+        }
+        .t {
+          padding: 3px;
+        }
+        .tf {
+          border-bottom: 1px solid silver;
+          border-left: 1px solid silver;
+          border-right: 1px solid silver;
+        }
+        .tf {
+          font-size: 6px;
+          height: 6px;
+        }
+        .rdl1,
+        .rdl2 {
+          border-left: 1px solid silver;
+        }
+        .rdr1,
+        .rdr2 {
+          border-right: 1px solid silver;
+        }
+        .rdl1,
+        .rdr1,
+        .rdl2,
+        .rdr2 {
+          font-size: 6px;
+          height: 3px;
+        }
+      }
+      @media print {
+        .t {
+          border-top: 1pt solid silver;
+          border-left: 1pt solid silver;
+          border-right: 1pt solid silver;
+        }
+        .t {
+          padding: 3pt;
+        }
+        .tf {
+          border-bottom: 1pt solid silver;
+          border-left: 1pt solid silver;
+          border-right: 1pt solid silver;
+        }
+        .tf {
+          font-size: 6pt;
+          height: 6pt;
+        }
+        .rdl1,
+        .rdl2 {
+          border-left: 1pt solid silver;
+        }
+        .rdr1,
+        .rdr2 {
+          border-right: 1pt solid silver;
+        }
+        .rdl1,
+        .rdr1,
+        .rdl2,
+        .rdr2 {
+          font-size: 6pt;
+          height: 3pt;
+        }
+      }
+      @media screen {
+        .zurueck {
+          position: fixed;
+          top: 8pt;
+          left: 8pt;
+          width: 64pt;
+          height: 20pt;
+          font-size: 13pt;
+          padding-top: 5pt;
+          text-align: center;
+          background: #f0f0f0;
+          border: 1pt solid silver;
+        }
+        .fz {
+          visibility: hidden;
+          margin-bottom: 20px;
+        }
+      }
+      @media print {
+        .zurueck {
+          visibility: hidden;
+        }
+        .fz {
+          page-break-after: always;
+        }
+      }
+      @media screen {
+        a:link {
+          color: blue;
+          text-decoration: none;
+        }
+        a:visited {
+          color: blue;
+          text-decoration: none;
+        }
+        a:hover {
+          color: black;
+          background-color: yellow;
+          text-decoration: none;
+        }
+        a:active {
+          color: black;
+          background-color: yellow;
+          text-decoration: underline;
+        }
+        a:focus {
+          color: black;
+          background-color: yellow;
+          text-decoration: none;
+        }
+      }
+      @media print {
+        a:link {
+          color: black;
+          text-decoration: none;
+        }
+        a:visited {
+          color: black;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background-color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    "
+    onload="checkForCookies()"
+  >
+    <!-- ### Optionaler Header ### -->
+    <!-- <Wochenplan> -->
+    <div style="width: 100%; max-width: 1000px">
+      <div style="margin: 0px 5vw 5vw">
+        <div>
+          <p><b>FWPM:</b></p>
+        </div>
+        <div
+          style="display: flex; justify-content: flex-start; flex-wrap: wrap"
+        >
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="offSec"
+              name="offSec"
+              value="offSec"
+              checked
+              onchange="check('offSec', 'Offensive Security')"
+            />
+            <label for="offSec">Offensive Security</label>
+          </div>
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="webCon"
+              name="webCon"
+              value="webCon"
+              checked
+              onchange="check('webCon', 'Web-Controlling')"
+            />
+            <label for="webCon">Web-Controlling</label>
+          </div>
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="embSys"
+              name="embSys"
+              value="embSys"
+              checked
+              onchange="check('embSys', 'der Embedded')"
+            />
+            <label for="embSys">Embedded Systems</label>
+          </div>
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="forsch"
+              name="forsch"
+              value="forsch"
+              checked
+              onchange="check('forsch', 'Forschungsprojekt')"
+            />
+            <label for="forsch">Forschungsprojekt</label>
+          </div>
+        </div>
+      </div>
+      <div style="margin: 5vh 5vw">
+        <div>
+          <p><b>Pflichtveranstaltungen:</b></p>
+        </div>
+        <div
+          style="display: flex; justify-content: flex-start; flex-wrap: wrap"
+        >
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="BS"
+              name="BS"
+              value="BS"
+              checked
+              onchange="check('BS', 'Business Systeme')"
+            />
+            <label for="BS">Business Systeme</label>
+          </div>
+
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="wiss"
+              name="wiss"
+              value="wiss"
+              checked
+              onchange="check('wiss', 'Wissenschaftsseminar')"
+            />
+            <label for="wiss">Wissenschaftsseminar</label>
+          </div>
+
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="EL"
+              name="EL"
+              value="EL"
+              checked
+              onchange="check('EL', 'Ethical Leadership')"
+            />
+            <label for="EL">Ethical Leadership</label>
+          </div>
+
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="DT"
+              name="DT"
+              value="DT"
+              checked
+              onchange="check('DT', 'Digitale Transformation')"
+            />
+            <label for="DT">Digitale Transformation</label>
+          </div>
+
+          <div style="margin: 10px">
+            <input
+              type="checkbox"
+              id="SA"
+              name="SA"
+              value="SA"
+              checked
+              onchange="check('SA', 'Softwarearchitekturen ')"
+            />
+            <label for="SA">Softwarearchitekturen </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <iframe id="iframe" src="https://fiw.fhws.de/fileadmin/share/vlplan/MDB_2022ws.html" width="100%" height="10000px"></iframe>
+
+    <!-- Logic -->
+    <script>
+      const cookies = document.cookie;
+      let disabledIds = cookies ? JSON.parse(cookies) : [];
+      const idValueMap = {
+        offSec: "Offensive Security",
+        webCon: "Web-Controlling",
+        embSys: "der Embedded",
+        forsch: "Forschungsprojekt",
+        BS: "Business Systeme",
+        wiss: "Wissenschaftsseminar",
+        EL: "Ethical Leadership",
+        DT: "Digitale Transformation",
+        SA: "Softwarearchitekturen",
+      };
+
+      function check(id, value) {
+        // the checkbox dom element that has been clicked
+        var checkBox = document.getElementById(id);
+        // all the ui blocks of the lectures
+        const test = getElementsByXPath(value);
+        // if checkbox is now checked, set the opacity to 100
+        if (checkBox.checked == true && test.length > 0) {
+          // store as cookie that user visits this lecture
+          const ids = disabledIds.filter((e) => e !== id);
+          disabledIds = ids;
+          var json_str = JSON.stringify(ids);
+          document.cookie = json_str;
+          test.forEach((t) => {
+            t.style.opacity = "100%";
+          });
+        } else if (checkBox.checked == false && test.length > 0) {
+          disabledIds.push(id);
+          var json_str = JSON.stringify(disabledIds);
+          document.cookie = json_str;
+          test.forEach((t) => {
+            t.style.opacity = "20%";
+          });
+        } else {
+        }
+      }
+
+      function checkForCookies() {
+        const cookies = document.cookie;
+        if (cookies) {
+          var array = JSON.parse(cookies);
+          array.forEach((id) => {
+            document.getElementById(id).removeAttribute("checked");
+            const idValue = idValueMap[id];
+            const test = getElementsByXPath(idValue);
+            test.forEach((t) => {
+              t.style.opacity = "20%";
+            });
+          });
+        }
+      }
+
+      function getElementsByXPath(value, parent) {
+        let results = [];
+        var xpath = "//td[contains(.,'" + value + "')]";
+        const iframe = document.getElementById('iframe')
+        let query = document.evaluate(
+          xpath,
+          parent || iframe,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
+        for (let i = 0, length = query.snapshotLength; i < length; ++i) {
+          results.push(query.snapshotItem(i));
+        }
+        return results;
+      }
+    </script>
+  </body>
+</html>
